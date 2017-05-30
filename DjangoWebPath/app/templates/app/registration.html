@@ -1,4 +1,4 @@
-{% extends "app/layout.html" %}
+﻿{% extends "app/layout.html" %}
 
 {% block content %}
 
@@ -6,10 +6,10 @@
 <section id="loginForm">
     <form action="." method="post" class="form-horizontal" id="user-form">
         {% csrf_token %}
-        <h4>Use a local account to log in.</h4>
+        <h4>Register an account.</h4>
         <hr />
-        <div id="username-group" class="form-group container">
-            <label for="in_username" class="control-label">User name</label>
+        <div id="username-group1" class="form-group container">
+            <label for="id_username" class="control-label">User name</label>
             <div class="row">
                 <div class="col-md-auto">
                 {{ form.username }}
@@ -21,19 +21,34 @@
                 </div>
             </div>
         </div>
-        <div id="password-group" class="form-group container">
-            <label for="in_password" class="control-label">Password</label>
+
+        <div id="password-group1" class="form-group container">
+            <label for="id_password1" class="control-label">Password</label>
             <div class="row">
                 <div class="col-md-auto">
-                {{ form.password }}
+                {{ form.password1 }}
             </div>
             <div class="col offset-1">
-                <p class="field-validation-error" id="error_password">
-                    {{ form.errors.password.as_text }}
+                <p class="field-validation-error" id="error_password1">
+                    {{ form.errors.password1.as_text }}
                     </p>
                 </div>
             </div>
         </div>
+         <div id="password-group2" class="form-group container">
+            <label for="id_password2" class="control-label">Confirm Password</label>
+            <div class="row">
+                <div class="col-md-auto">
+                {{ form.password2 }}
+            </div>
+            <div class="col offset-1">
+                <p class="field-validation-error" id="error_password2">
+                    {{ form.errors.password2.as_text }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="hidden" name="next" value="/" />
@@ -50,7 +65,6 @@
     <section id="socialLoginForm"></section>
 </div>
 
-
 {% endblock %}
 
 
@@ -60,5 +74,6 @@
         <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
         <script src="{% static 'app/scripts/additional-methods.js' %}"></script>
         <script src="{% static 'app/scripts/userformcheck.js' %}"></script>
+        
 
 {% endblock %}

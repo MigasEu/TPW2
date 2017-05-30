@@ -40,6 +40,10 @@ input[type="checkbox"].input-validation-error {
     align-content: stretch;
 }
 
+.error {
+    color: red;
+}
+
 .create-story input[type="text"], .create-story textarea {
     overflow: hidden;
     width: 100%;
