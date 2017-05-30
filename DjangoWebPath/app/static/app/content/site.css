@@ -1,5 +1,6 @@
 ﻿body {
-    padding-top: 50px;
+    background-color: #f2f2f2;
+    padding-top: 56px;
     padding-bottom: 20px;
 }
 
@@ -16,13 +17,14 @@ textarea {
     max-width: 280px;
 }
 
+#maincontainer {
+    margin-top: 10px;
+}
+
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;
-}
-
-.field-validation-valid {
-    display: none;
+    text-align: right;
 }
 
 input.input-validation-error {
@@ -35,8 +37,110 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-errors {
     color: #b94a48;
+    align-content: stretch;
 }
 
-.validation-summary-valid {
-    display: none;
+.create-story input[type="text"], .create-story textarea {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    resize: none;
+}
+
+.create-story input[type="text"] {
+    font-size: 2.5rem;
+}
+
+.create-story .choice {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.story-card-container {
+    margin-bottom: 15px;
+}
+
+.story-card {
+    cursor: pointer;
+    height: 100%;
+    display : flex;
+    align-items : center;
+}
+
+.story-card .story-title {
+    margin: 0 auto;
+}
+
+.story-card:hover {
+    background-color: #666;
+}
+
+.storyIntro, .story-card {
+    background-color: #777;
+    box-shadow: .5px .5px 2px grey, -.5px -.5px 2px grey;
+    border: solid 1px #999;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.story-title {
+    color: white;
+    text-align: center;
+    text-shadow: .5px .5px .5px black;
+}
+
+.event-row, .choices, .create-piece {
+    margin-bottom: 15px;
+}
+.piece, .event, .choice, .restart, .create-save {
+    box-shadow: .5px .5px 1px grey, -.5px -.5px 1px grey;
+    border: solid 1px #999;
+    padding: 10px;
+    border-radius: 0;
+}
+
+.event {
+    background-color: white;
+}
+
+.choice {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.choice-0, .choice-0:disabled, .choice-0[readonly] {
+    background-color: #31b0d5;
+    color: white;
+}
+
+.choice-1, .choice-1:disabled, .choice-1[readonly] {
+    background-color: burlywood;
+    color: black;
+}
+
+.choice-2, .choice-2:disabled, .choice-2[readonly] {
+    background-color: lightcyan;
+    color: black;
+}
+
+.choice-3, .choice-3:disabled, .choice-3[readonly] {
+    background-color: aliceblue;
+    color: white;
+}
+
+.event-lose, .event-lose[readonly] {
+    background-color: coral;
+    border: 1px solid red;
+}
+
+.event-win, .event-win[readonly] {
+    background-color: darkseagreen;
+    border: 1px solid green;
+}
+
+.restart {
+    border-radius: 0;
+    cursor: pointer;
 }

@@ -2,41 +2,52 @@
 
 {% block content %}
 
-<h2>{{ title }}</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            <form action="." method="post" class="form-horizontal">
-                {% csrf_token %}
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div class="form-group">
-                    <label for="id_username" class="col-md-2 control-label">User name</label>
-                    <div class="col-md-10">
-                        {{ form.username }}
-                    </div>
+
+<section id="loginForm">
+    <form action="." method="post" class="form-horizontal" id="login-form">
+        {% csrf_token %}
+        <h4>Use a local account to log in.</h4>
+        <hr />
+        <div id="username-group" class="form-group container">
+            <label for="in_username" class="control-label">User name</label>
+            <div class="row">
+                <div class="col-md-auto">
+                {{ form.username }}
                 </div>
-                <div class="form-group">
-                    <label for="id_password" class="col-md-2 control-label">Password</label>
-                    <div class="col-md-10">
-                        {{ form.password }}
-                    </div>
+                <div class="col offset-1">
+                    <p class="field-validation-error" id="error_username">
+                   {{ form.errors.username.as_text }}
+                    </p>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="hidden" name="next" value="/" />
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
+            </div>
+        </div>
+        <div id="password-group" class="form-group container">
+            <label for="in_password" class="control-label">Password</label>
+            <div class="row">
+                <div class="col-md-auto">
+                {{ form.password }}
+            </div>
+            <div class="col offset-1">
+                <p class="field-validation-error" id="error_password">
+                    {{ form.errors.password.as_text }}
+                    </p>
                 </div>
-                {% if form.errors %}
-                <p class="validation-summary-errors">Please enter a correct user name and password.</p>
-                {% endif %}
-            </form>
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm"></section>
-    </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="hidden" name="next" value="/" />
+                <button id="btnSubmit" type="submit" class="btn btn-primary">Log in</button>
+                <input class="btn btn-warning" type="reset" value="Reset">
+            </div>
+        </div>
+        {% if form.non_field_errors %}
+            <p class="validation-summary-errors">Please enter a correct user name and password.</p>
+        {% endif %}
+    </form>
+</section>
+<div class="col-md-4">
+    <section id="socialLoginForm"></section>
 </div>
 
 {% endblock %}
@@ -46,5 +57,14 @@
 
     {% load staticfiles %}
 <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#login-form").validate({
+            required: function (element) {
+                return /^[A-Za-z0-9]{3,12}$/.test($('input[type=text]').val());
+            }
+        })
+    });
+</script>
 
 {% endblock %}
