@@ -52,9 +52,22 @@
     <Folder Include="DjangoWebPath\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\tether.css" />
+    <Content Include="app\static\app\scripts\main.js" />
+    <Content Include="app\static\app\scripts\tether.js" />
+    <Content Include="app\templates\app\choice.html" />
+    <Content Include="app\templates\app\choices.html" />
+    <Content Include="app\templates\app\createChoice.html" />
+    <Content Include="app\templates\app\createChoices.html" />
+    <Content Include="app\templates\app\createEvent.html" />
+    <Content Include="app\templates\app\createFinal.html" />
+    <Content Include="app\templates\app\createPiece.html" />
+    <Content Include="app\templates\app\createStory.html" />
+    <Content Include="app\templates\app\event.html" />
+    <Content Include="app\templates\app\logedLeft.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
-    <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\site.css" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
