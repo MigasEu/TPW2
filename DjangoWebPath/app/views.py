@@ -27,13 +27,15 @@ def home(request):
 def playStory(request, storyId):
     assert isinstance(request, HttpRequest)
     story = get_object_or_404(Story, pk=storyId)
+    firstPieceId = Piece.objects.filter(story=storyId).first()
     return render(
         request,
         'app/playStory.html',
         {
             'title':'Play '+story.title,
             'year':datetime.now().year,
-            'story':story
+            'story':story,
+            'firstPiece':firstPieceId.pk
         }
     )
 
