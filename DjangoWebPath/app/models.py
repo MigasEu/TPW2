@@ -9,14 +9,9 @@ from django.dispatch import receiver
 
 # Create your models here.
 
+"""
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    
-
-class Story(models.Model):
-    title = models.CharField(max_length=50)
-    image = models.ImageField()
-    creator = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -26,6 +21,13 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+ """
+class Story(models.Model):
+    title = models.CharField(max_length=50)
+    image = models.ImageField()
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
 
 class Piece(models.Model):
     story = models.ForeignKey(Story, on_delete=models.CASCADE)
