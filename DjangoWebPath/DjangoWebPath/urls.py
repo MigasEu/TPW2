@@ -42,9 +42,26 @@ urlpatterns = [
         },
         name='logout'),
 
+     url(r'^register/$',
+        app.views.registration,
+        {
+            'template_name': 'app/registration.html',
+            'registration_form': app.forms.BootstrapRegistrationForm,
+            'extra_context':
+            {
+                'title': 'Sign up',
+                'year': datetime.now().year,
+            }
+        },
+        name='registration'),
+
+
+
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
+
 ]
