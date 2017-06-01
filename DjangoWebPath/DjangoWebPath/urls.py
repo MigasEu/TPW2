@@ -31,6 +31,10 @@ urlpatterns = [
             }
         },
         name='login'),
+    url(r'^play/(?P<storyId>\d+)/$',
+        app.views.playStory, name='playStory'),
+    url(r'^play/(?P<storyId>\d+)/(?P<pieceId>\d+)/$',
+        app.views.getPiece, name='getPiece'),
     url(r'^logout$',
         django.contrib.auth.views.logout,
         {

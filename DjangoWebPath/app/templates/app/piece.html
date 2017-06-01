@@ -1,0 +1,38 @@
+﻿{% load extra_tags %}
+
+{% if piece|isinst:"DecisionPiece" %}
+    <div class="row event-row">
+        <div class="col event">
+            <span class="eventContent">
+                {{ piece.text }}
+            </span>
+        </div>
+    </div>
+    <div class="row choices">
+        {% for choice in choices %}
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-lg btn-block choice" next="{{ choice.next.pk }}">
+                    <span class="choiceContent">
+                        {{ choice.text }}
+                    </span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+{% elif piece|isinst:"Piece" %}
+    <div class="row event-row">
+        <div class="col event 
+             {% if piece|isinst:"WinPiece" %}event-win{% elif piece|isinst:"LosePiece" %}event-lose{% endif %}">
+            <span class="eventContent">
+                {{ piece.text }}
+            </span>
+        </div>
+    </div>
+    {% if piece.next %}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                append_piece({{ piece.next.pk }});
+            });
+         </script>
+    {% endif %}
+{% endif %}

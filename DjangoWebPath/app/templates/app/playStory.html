@@ -1,0 +1,33 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col storyIntro">
+        <h1 class="story-title">
+            {{ story.title }}
+        </h1>
+    </div>
+</div>
+
+<div id="story-body" class="container">
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+    <script type="text/javascript">
+        playStory_url = "{% url "playStory" storyId=story.pk %}";
+        $(document).ready(function () {
+            append_piece({{ firstPiece }});
+            $("#story-body").on('click', '.choice', selectChoice);
+        });        
+    </script>
+    <script src="{% static 'app/scripts/playStory.js' %}"></script>
+
+
+{% endblock %}
