@@ -72,12 +72,17 @@ input[type="checkbox"].input-validation-error {
     align-items : center;
 }
 
+a.story-card {
+    color: saddlebrown;
+    text-decoration: initial;
+}
+
 .story-card .story-title {
     margin: 0 auto;
 }
 
 .story-card:hover {
-    background-color: #666;
+    background-color: #333;
 }
 
 .storyIntro, .story-card {

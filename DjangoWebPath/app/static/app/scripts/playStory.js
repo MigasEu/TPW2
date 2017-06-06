@@ -1,6 +1,6 @@
 ﻿function append_piece(pieceId) {
-    if (pieceId) {
-        $.get(playStory_url+pieceId, function (data) {
+    if (pieceId >= 0) {
+        $.get(playStory_url + pieceId, function (data) {
             var eventHTML = $(data).appendTo("#story-body");
         });
     }

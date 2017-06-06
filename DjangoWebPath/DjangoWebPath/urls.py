@@ -8,6 +8,7 @@ import django.contrib.auth.views
 
 import app.forms
 import app.views
+from django.views.generic import TemplateView
 
 # Uncomment the next lines to enable the admin:
 from django.conf.urls import include
@@ -19,6 +20,7 @@ urlpatterns = [
     url(r'^$', app.views.home, name='home'),
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about', app.views.about, name='about'),
+    url(r'^api/story$', app.views.postStory, name='rest_story_post'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {
@@ -35,6 +37,13 @@ urlpatterns = [
         app.views.playStory, name='playStory'),
     url(r'^play/(?P<storyId>\d+)/(?P<pieceId>\d+)/$',
         app.views.getPiece, name='getPiece'),
+    url(r'^create$',
+        app.views.createStory, name='createStory'),
+    url(r'^template/createPiece$', TemplateView.as_view(template_name='app/createPiece.html')),
+    url(r'^template/createEvent$', TemplateView.as_view(template_name='app/createEvent.html')),
+    url(r'^template/createChoices$', TemplateView.as_view(template_name='app/createChoices.html')),
+    url(r'^template/createChoice$', TemplateView.as_view(template_name='app/createChoice.html')),
+    url(r'^template/createFinal$', TemplateView.as_view(template_name='app/createFinal.html')),
     url(r'^logout$',
         django.contrib.auth.views.logout,
         {
@@ -54,6 +63,7 @@ urlpatterns = [
             }
         },
         name='registration'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 
 
