@@ -27,12 +27,22 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
+    <Compile Include="app\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\tests.py" />
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="app\templatetags\extra_tags.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\templatetags\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="DjangoWebPath\__init__.py" />
     <Compile Include="DjangoWebPath\settings.py" />
@@ -50,22 +60,26 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="DjangoWebPath\" />
+    <Folder Include="app\templatetags\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\tether.css" />
+    <Content Include="app\static\app\scripts\additional-methods.js" />
+    <Content Include="app\static\app\scripts\autosize.min.js" />
+    <Content Include="app\static\app\scripts\jquery.cookie.js" />
     <Content Include="app\static\app\scripts\main.js" />
+    <Content Include="app\static\app\scripts\playStory.js" />
     <Content Include="app\static\app\scripts\tether.js" />
-    <Content Include="app\templates\app\choice.html" />
-    <Content Include="app\templates\app\choices.html" />
+    <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\createChoice.html" />
     <Content Include="app\templates\app\createChoices.html" />
     <Content Include="app\templates\app\createEvent.html" />
     <Content Include="app\templates\app\createFinal.html" />
     <Content Include="app\templates\app\createPiece.html" />
     <Content Include="app\templates\app\createStory.html" />
-    <Content Include="app\templates\app\event.html" />
-    <Content Include="app\templates\app\logedLeft.html" />
+    <Content Include="app\templates\app\piece.html" />
+    <Content Include="app\templates\app\playStory.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
@@ -90,7 +104,6 @@
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
     <Content Include="app\templates\app\about.html" />
-    <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />

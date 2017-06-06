@@ -23,7 +23,7 @@
     <script type="text/javascript">
         playStory_url = "{% url "playStory" storyId=story.pk %}";
         $(document).ready(function () {
-            append_piece({{ firstPiece }});
+            append_piece(0);
             $("#story-body").on('click', '.choice', selectChoice);
         });        
     </script>

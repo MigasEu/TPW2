@@ -1,17 +1,10 @@
 ﻿{% load extra_tags %}
 
 {% if piece|isinst:"DecisionPiece" %}
-    <div class="row event-row">
-        <div class="col event">
-            <span class="eventContent">
-                {{ piece.text }}
-            </span>
-        </div>
-    </div>
     <div class="row choices">
         {% for choice in choices %}
             <div class="col">
-                <button type="button" class="btn btn-secondary btn-lg btn-block choice" next="{{ choice.next.pk }}">
+                <button type="button" class="btn btn-secondary btn-lg btn-block choice choice-{{ forloop.counter0 }}" next="{{ choice.next }}">
                     <span class="choiceContent">
                         {{ choice.text }}
                     </span>
@@ -31,7 +24,7 @@
     {% if piece.next %}
         <script type="text/javascript">
             $(document).ready(function () {
-                append_piece({{ piece.next.pk }});
+                append_piece({{ piece.next }});
             });
          </script>
     {% endif %}
